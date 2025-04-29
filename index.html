@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Retro Tetris</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body tabindex="0">
+  <h1 id="title">TETRIS</h1>
+  <div id="game-container">
+    <canvas id="tetris" width="300" height="600"></canvas>
+    <div id="scoreboard">Punkte: <span id="score">0</span></div>
+
+    <div id="controls">
+      <!-- Profilsteuerung -->
+      <input type="text" id="profileName" placeholder="Name eingeben">
+      <button id="createProfile">Profil erstellen</button>
+      <div class="profile-select-wrapper">
+        <select id="profileSelect"></select>
+        <button id="deleteProfile" title="Profil löschen">✕</button>
+      </div>
+
+      <!-- Spielsteuerung -->
+      <button id="startBtn">Start</button>
+      <button id="restartBtn">Neustart</button>
+      <button id="quitBtn">Beenden</button>
+
+      <!-- Schwierigkeitsmodus -->
+      <div id="mode-select">
+        <label><input type="radio" name="mode" id="modeEasy" checked>Leicht</label>
+        <label><input type="radio" name="mode" id="modeHard">Schwer</label>
+        <label><input type="radio" name="mode" id="modeImpossible">Impossible</label>
+      </div>
+    </div>
+
+    <!-- Globales Ranking -->
+    <div id="leaderboard">
+      <h2>High Scores</h2>
+      <ol id="scoresList"></ol>
+    </div>
+
+    <!-- Steuerungs-Anleitung unten rechts -->
+    <div id="instructions">
+      <h3>Steuerung</h3>
+      <div class="instruction-row"><kbd>←</kbd><span>Links</span></div>
+      <div class="instruction-row"><kbd>→</kbd><span>Rechts</span></div>
+      <div class="instruction-row"><kbd>↓</kbd><span>Schnell fallen</span></div>
+      <div class="instruction-row"><kbd>W</kbd><span>Drehen</span></div>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOver">Idiot</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
