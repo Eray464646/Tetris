@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Grundlayout */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  display: flex; flex-direction: column; align-items: center;
+  background: #0b0b0b; color: #00ffde;
+  font-family: 'Press Start 2P', monospace;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px);
+  background-size: 20px 20px;
+}
+
+#title {
+  margin: 30px 0; font-size: 3rem; text-shadow: 0 0 15px #00ffde;
+}
+
+#game-container { position: relative; }
+
+/* Canvas */
+canvas {
+  width: 300px; height: 600px;
+  background: rgba(17,17,17,0.85);
+  border: 4px solid #00ffde;
+  box-shadow: 0 0 30px rgba(0,255,222,0.6), inset 0 0 15px rgba(255,0,255,0.4);
+  position: relative; z-index: 0;
+}
+
+/* Scoreboard */
+#scoreboard {
+  position: absolute; top: 12px; left: 12px;
+  font-size: 1rem; text-shadow: 0 0 6px rgba(0,255,222,0.7);
+  z-index: 2;
+}
+
+/* Controls links */
+#controls {
+  position: absolute; top: 12px; left: -320px;
+  width: 300px; display: flex; flex-direction: column; gap: 8px;
+  z-index: 2;
+}
+#controls input[type="text"] {
+  padding: 6px; font-size: 0.8rem;
+  border: 2px solid #00ffde; background: transparent; color: #00ffde;
+  text-shadow: 0 0 3px rgba(0,255,222,0.7);
+}
+#controls button {
+  padding: 6px; font-size: 0.8rem;
+  border: none; background: #00ffde; color: #0b0b0b; cursor: pointer;
+}
+#controls button:hover { background: #0dc2ff; }
+
+/* Profil-Auswahl */
+.profile-select-wrapper { display: flex; gap: 4px; }
+.profile-select-wrapper select {
+  flex: 1; padding: 6px; font-size: 0.8rem;
+  border: 2px solid #00ffde; background: transparent; color: #00ffde;
+  text-shadow: 0 0 3px rgba(0,255,222,0.7);
+}
+.profile-select-wrapper button {
+  width: 30px; background: red; color: #fff; border: none; cursor: pointer;
+}
+
+/* Modus */
+#mode-select label { display: block; font-size: 0.8rem; cursor: pointer; }
+
+/* Leaderboard rechts */
+#leaderboard {
+  position: absolute; top: 12px; right: -360px; width: 300px;
+  z-index: 2;
+}
+#leaderboard h2 {
+  font-size: 1.1rem; text-shadow: 0 0 6px rgba(0,255,222,0.7);
+}
+#leaderboard ol { padding-left: 20px; }
+
+/* Steuerung unten rechts */
+#instructions {
+  position: absolute; bottom: 12px; left: 100%; margin-left: 12px; max-width: 200px;
+  z-index: 2;
+}
+#instructions h3 {
+  font-size: 1.2rem; text-shadow: 0 0 6px rgba(0,255,222,0.7);
+}
+.instruction-row {
+  display: flex; align-items: center; gap: 6px; margin-bottom: 4px;
+}
+#instructions kbd {
+  padding: 6px 8px; font-size: 1rem;
+  border: 2px solid #00ffde; border-radius: 4px;
+  text-shadow: 0 0 3px rgba(0,255,222,0.7);
+}
+#instructions span { font-size: 0.8rem; }
+
+/* Game Over („Idiot“) */
+#gameOver {
+  display: none; position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  color: red; font-size: 6rem; text-shadow: 0 0 30px red;
+  pointer-events: none; animation: pulse 1s ease-in-out infinite alternate;
+  z-index: 3;
+}
+@keyframes pulse {
+  from { transform: translate(-50%,-50%) scale(1); opacity: 1; }
+  to   { transform: translate(-50%,-50%) scale(1.2); opacity: 0.7; }
+}
+
